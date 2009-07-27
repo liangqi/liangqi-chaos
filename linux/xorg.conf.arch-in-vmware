@@ -1,0 +1,89 @@
+Section "ServerLayout"
+	Identifier     "X.org Configured"
+	Screen      0  "Screen0" 0 0
+	InputDevice    "Mouse0" "CorePointer"
+	InputDevice    "Keyboard0" "CoreKeyboard"
+EndSection
+
+Section "Files"
+	ModulePath   "/usr/lib/xorg/modules"
+	FontPath     "/usr/share/fonts/local/"
+	FontPath     "/usr/share/fonts/misc"
+	FontPath     "/usr/share/fonts/100dpi:unscaled"
+	FontPath     "/usr/share/fonts/75dpi:unscaled"
+	FontPath     "/usr/share/fonts/TTF"
+	FontPath     "/usr/share/fonts/Type1"
+EndSection
+
+Section "Module"
+#	Load  "glx"
+#	Load  "record"
+#	Load  "extmod"
+#	Load  "dri"
+#	Load  "dri2"
+#	Load  "dbe"
+EndSection
+
+Section "InputDevice"
+	Identifier  "Keyboard0"
+	Driver      "kbd"
+	Option "XkbLayout" "gb"
+EndSection
+
+Section "InputDevice"
+	Identifier  "Mouse0"
+	Driver      "vmmouse"
+	Option	    "Protocol" "auto"
+	Option	    "Device" "/dev/input/mice"
+	Option	    "ZAxisMapping" "4 5 6 7"
+EndSection
+
+Section "Monitor"
+	Identifier   "vmware"
+	VendorName   "VMware, Inc"
+	HorizSync    1.0 - 10000.0
+	VertRefresh  1.0 - 10000.0
+	ModeLine     "1680x1050" 100 1680 1700 1800 1900 1050 1100 1200 1300 
+EndSection
+
+Section "Device"
+	Identifier  "VMware SVGA"
+	Driver      "vmware"
+	VendorName  "VMware, Inc"
+EndSection
+
+Section "Screen"
+	Identifier "Screen0"
+	Device     "VMware SVGA"
+	Monitor    "vmware"
+	SubSection "Display"
+		Modes     "1680x1050"
+		Viewport   0 0
+		Depth     1
+	EndSubSection
+	SubSection "Display"
+		Modes     "1680x1050"
+		Viewport   0 0
+		Depth     4
+	EndSubSection
+	SubSection "Display"
+		Modes     "1680x1050"
+		Viewport   0 0
+		Depth     8
+	EndSubSection
+	SubSection "Display"
+		Modes     "1680x1050"
+		Viewport   0 0
+		Depth     15
+	EndSubSection
+	SubSection "Display"
+		Modes     "1680x1050"
+		Viewport   0 0
+		Depth     16
+	EndSubSection
+	SubSection "Display"
+		Modes     "1680x1050"
+		Viewport   0 0
+		Depth     24
+	EndSubSection
+EndSection
